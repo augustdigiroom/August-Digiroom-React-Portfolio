@@ -1,11 +1,17 @@
 import HeroSection from '../components/HeroSection'
-import ProjectGrid from '../components/ProjectGrid'
+import ProjectSection from '../components/ProjectSection'
+import StackSection from '../components/StackSection'
+import BlogPreviewSection from '../components/BlogPreviewSection'
+import AboutMeSection from '../components/AboutMeSection'
 
-export default function Home() {
+export default function Home({ posts }) {
   return (
-    <div>
+    <>
       <HeroSection />
-      <ProjectGrid />
-    </div>
+      <StackSection />
+      <ProjectSection />
+      <BlogPreviewSection posts={posts} />
+      <AboutMeSection />
+    </>
   )
 }

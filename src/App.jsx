@@ -1,16 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import Home from './pages/Home'
+import Blog from './pages/Blog'
+import About from './pages/About'
+import Post from './pages/Post'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import BlogPost from './pages/BlogPost'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/posts`)
+        const data = await res.json()
+        setPosts(data)
+      } catch (error) {
+        console.error('Error fetching posts:', error)
+      }
+    }
+
+    fetchPosts()
+  }, [])
 
   return (
-      <h1 class="text-3xl font-bold text-blue-500 underline">
-        Tailwind is working!
-      </h1>
-  );
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home posts={posts} />} />
+        <Route path="/blog" element={<Blog posts={posts} />} />
+        <Route path="/blog/:slug" element={<BlogPost />} /> 
+        <Route path="/about" element={<About />} />
+        <Route path="/posts/:slug" element={<Post />} />
+      </Routes>
+      <Footer />
+    </Router>
+  )
 }
 
 export default App
+
