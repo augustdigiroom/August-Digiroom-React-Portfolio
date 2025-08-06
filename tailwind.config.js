@@ -1,4 +1,6 @@
 // tailwind.config.js
+import colors from 'tailwindcss/colors'
+
 export default {
   darkMode: 'class',
   content: [
@@ -7,10 +9,14 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        ...colors,
+      },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
       },
     },
   },
   plugins: [],
-};
+}
+
