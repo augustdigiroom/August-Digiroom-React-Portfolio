@@ -1,9 +1,76 @@
-import { useState } from 'react';
+ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { FiMenu, FiX } from 'react-icons/fi';
+import styled from '@emotion/styled';
+import { useTheme, useMediaQuery } from '@mui/material';
+
+const Header = styled.header`
+  background-color: ${({ theme }) => theme.palette.mode === 'dark' ? '#1a1a1a' : '#fff'};
+  color: ${({ theme }) => theme.palette.mode === 'dark' ? '#f3f4f6' : '#1f2937'};
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+`;
+
+const Nav = styled.nav`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const Logo = styled(Link)`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #6366f1;
+  text-decoration: none;
+`;
+
+const NavList = styled.ul`
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    margin-top: 1rem;
+    align-items: flex-start;
+    ${({ isOpen }) => !isOpen && `display: none;`}
+  }
+`;
+
+const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+  font-weight: 500;
+  color: ${({ theme }) => theme.palette.mode === 'dark' ? '#e5e7eb' : '#374151'};
+
+  &:hover {
+    color: #6366f1;
+  }
+
+  &.active {
+    color: #4338ca;
+  }
+`;
+
+const MobileToggle = styled.button`
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+`;
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery('(max-width:768px)');
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -13,32 +80,30 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-white dark:bg-gray-900 shadow text-gray-800 dark:text-gray-200 shadow sticky top-0 z-50">
-      <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-xl font-bold text-indigo-600">
-          EG Dev
-        </Link>
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-          </button>
-        </div>
-        <ul className={`md:flex gap-6 items-center ${isOpen ? 'block mt-4' : 'hidden md:block'}`}>
+    <Header theme={theme}>
+      <Nav>
+        <Logo to="/">August Digiroom</Logo>
+
+        <MobileToggle onClick={() => setIsOpen(!isOpen)}>
+          {isMobile && (isOpen ? <FiX size={24} /> : <FiMenu size={24} />)}
+        </MobileToggle>
+
+        <NavList isOpen={isOpen}>
           {navLinks.map((link) => (
             <li key={link.name}>
-              <NavLink
+              <StyledNavLink
                 to={link.path}
-                className={({ isActive }) =>
-                  `text-gray-700 hover:text-indigo-600 font-medium ${isActive ? 'text-indigo-700' : ''}`
-                }
+                className={({ isActive }) => (isActive ? 'active' : '')}
                 onClick={() => setIsOpen(false)}
+                theme={theme}
               >
                 {link.name}
-              </NavLink>
+              </StyledNavLink>
             </li>
           ))}
-        </ul>
-      </nav>
-    </header>
+        </NavList>
+      </Nav>
+    </Header>
   );
 }
+

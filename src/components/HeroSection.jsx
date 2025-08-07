@@ -1,57 +1,97 @@
+// HeroSection.jsx
+import styled from 'styled-components';
 import { Typewriter } from 'react-simple-typewriter';
 
 const roles = [
   'Full Stack Developer',
-  'MERN Stack Development',
-  'PHP / Laravel Framework',
+  'MERN Stack Engineer',
+  'PHP / Laravel Expert',
   'AWS Managed Services',
 ];
 
+const Section = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 2rem;
+  font-family: 'Inter', sans-serif;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+const TextContainer = styled.div`
+  max-width: 40rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Heading = styled.h1`
+  font-size: 3rem;
+  font-weight: bold;
+  color: black;
+`;
+
+const SubHeading = styled.p`
+  font-size: 2rem;
+`;
+
+const ImageWrapper = styled.div`
+  margin-top: 2rem;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+const ImageContainer = styled.div`
+  width: 100%;
+  max-width: 24rem;
+  height: 24rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
 export default function HeroSection() {
   return (
-    <section
-      className="flex flex-col md:flex-row items-center justify-between py-32 px-8
-      bg-gradient-to-b from-indigo-600 to-fuchsia-600 text-white
-      dark:from-gray-900 dark:to-gray-800 dark:text-gray-100 font-inter"
-    >
-      {/* Left Text Section */}
-      <div className="text-left max-w-xl space-y-4">
-        <h1 className="text-4xl font-bold">THIS IS AUGUST!</h1>
+    <Section>
+      <TextContainer>
+        <Heading>THIS IS AUGUST!</Heading>
 
-       <p className="text-2xl font-normal">
-        <Typewriter
-          words={roles}
-          loop={true}
-          cursor
-          cursorStyle="|"
-          typeSpeed={70}
-          deleteSpeed={50}
-          delaySpeed={1000}
-          typeStyle={{ fontSize: '1.5rem', fontWeight: 400 }}
-        />
-        <br />
-        Static text to check font size
-      </p>
+        <SubHeading>
+          <Typewriter
+            words={roles}
+            loop={true}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={1000}
+          />
+        </SubHeading>
 
-      <h1 className="text-5xl text-red-500 font-inter font-bold">
-         Tailwind + Inter Works!
-      </h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 
-      </div>
+      </TextContainer>
 
-      {/* Right Image */}
-        <div className="hidden md:flex md:w-1/2 justify-center">
-          <div className="w-full h-96 max-w-md rounded-lg shadow-lg overflow-hidden">
-            <img
-              src="/august_image.png"
-              alt="August Portfolio"
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-
-    </section>
+      <ImageWrapper>
+        <ImageContainer>
+          <img src="/august_image.png" alt="August" />
+        </ImageContainer>
+      </ImageWrapper>
+    </Section>
   );
 }
-
-
