@@ -22,7 +22,7 @@ export default function ProjectSection() {
               rel="noopener noreferrer"
               className="inline-block mt-4 text-sm font-medium text-blue-600 hover:underline"
             >
-              View Project →
+              Look at my Project →
             </a>
           </div>
         ))}
