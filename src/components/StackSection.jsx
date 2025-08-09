@@ -6,8 +6,8 @@ import styled from '@emotion/styled';
 const stackList = [
   'HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB',
   'Git', 'Postman', 'RestFUL API', 'My SQL', 'XAMPP', 'PHP', 'Laravel',
-  'AWS S3', 'AWS EC2', 'AWS Lambda', 'AWS API Gateway', 'Render', 'Vercel',
-  'Figma', 'Github',
+  'AWS S3', 'AWS EC2', 'AWS Lambda', 'AWS API Gateway', 'AWS DynamoDB', 'Render', 
+  'Vercel', 'Figma', 'Github', 
 ];
 
 const Container = styled(Box)(({ theme }) => ({
