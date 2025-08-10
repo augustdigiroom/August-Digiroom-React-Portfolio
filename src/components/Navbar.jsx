@@ -76,7 +76,7 @@ export default function Navbar() {
     { name: 'Home', path: '/' },
     { name: 'Projects', path: '/#projects' },
     { name: 'Blog', path: '/blog' },
-    { name: 'About Me', path: '/about' },
+    { name: 'About', path: '/about' },
   ];
 
   return (
