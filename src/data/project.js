@@ -17,7 +17,7 @@ const projects = [
   },
   {
     photo: "https://images.unsplash.com/photo-1465101178521-c1a4c8a0a8b7?auto=format&fit=crop&w=600&q=80",
-    title: "Task Manager App",
+    title: "Course Booking System - Zuitt Bootcamp Course",
     description: "A web app for managing daily tasks efficiently.",
     tags: ["React", "Redux", "Node.js", "MongoDB"],
     github: "https://github.com/yourusername/task-manager",
