@@ -26,7 +26,7 @@ const projects = [
       "https://images.unsplash.com/photo-1465101178521-c1a4c8a0a8b7?auto=format&fit=crop&w=600&q=80",
       "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
     ],
-    longDescription: "this is edit"
+    longDescription: "this is edit, edit again"
   },
   {
     photo: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
