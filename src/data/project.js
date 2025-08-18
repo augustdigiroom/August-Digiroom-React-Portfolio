@@ -18,8 +18,8 @@ const projects = [
   {
     photo: "https://images.unsplash.com/photo-1465101178521-c1a4c8a0a8b7?auto=format&fit=crop&w=600&q=80",
     title: "Course Booking System - Zuitt Bootcamp Course",
-    description: "A web app for managing daily tasks efficiently.",
-    tags: ["React", "Redux", "Node.js", "MongoDB"],
+    description: "A web application for booking courses, managing schedules, and user accounts.",
+    tags: ["MongoDB", "Express JS", "React", "Node JS", "JWT Token", "CRUD Operations"],
     github: "https://github.com/yourusername/task-manager",
     website: "https://taskmanagerapp.com",
     screenshots: [
