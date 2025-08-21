@@ -32,7 +32,7 @@ const projects = [
     photo: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
     title: "A Blog Platform using PHP / Laravel",
     description: "A full-featured e-commerce platform for online shopping.",
-    tags: ["React", "Express", "Stripe", "MongoDB"],
+    tags: ["PHP", "Laravel", "MySQL", "E-commerce", "REST API"],
     github: "https://github.com/yourusername/ecommerce-platform",
     website: "https://ecommerceplatform.com",
     screenshots: [
