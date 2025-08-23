@@ -47,8 +47,8 @@ const projects = [
     title: "A Blog Platform using PHP / Laravel",
     description: "A full-featured e-commerce platform for online shopping.",
     tags: ["PHP", "Laravel", "MySQL", "E-commerce", "REST API"],
-    github: "https://github.com/yourusername/ecommerce-platform",
-    website: "https://ecommerceplatform.com",
+    github: "https://github.com/augustdigiroom/Laravel-Blog-App",
+    website: "https://github.com/augustdigiroom/Laravel-Blog-App",
     screenshots: [
       "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
       "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
