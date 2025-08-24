@@ -51,9 +51,6 @@ const projects = [
     website: "https://github.com/augustdigiroom/Laravel-Blog-App",
     screenshots: [
       "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
-      "https://images.unsplash.com/photo-1465101178521-c1a4c8a0a8b7?auto=format&fit=crop&w=600&q=80"
     ],
     longDescription: "This e-commerce platform allows users to browse products, add items to cart, and checkout securely using Stripe. Built with React for the frontend and Express/MongoDB for the backend."
   }
