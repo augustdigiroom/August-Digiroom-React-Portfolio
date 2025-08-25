@@ -43,15 +43,36 @@ export default function AppWrapper({ children }) {
           },
         }}
       />
-      <div style={{ position: 'fixed', top: 16, right: 16, zIndex: 9999 }}>
-        <Button
-          variant="contained"
-          size="small"
-          onClick={() => setDarkMode(!darkMode)}
-        >
-          {darkMode ? '🌙 Dark' : '☀️ Light'}
-        </Button>
+
+      <div
+        style={{
+          position: 'fixed',
+          top: 22,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 9999,
+        }}
+      >
+          <Button
+              variant="outlined"
+              size="small"
+              onClick={() => setDarkMode(!darkMode)}
+              style={{
+                borderRadius: '9999px', // fully rounded (pill)
+                padding: '6px 16px',
+                fontWeight: 600,
+                border: darkMode ? '2px solid #ffffff' : '2px solid #000000',
+                backgroundColor: darkMode ? '#000000' : '#ffffff',
+                color: darkMode ? '#ffffff' : '#000000',
+                boxShadow: 'none', // flat look
+                textTransform: 'none', // keep text case as-is
+              }}
+            >
+              {darkMode ? '🌙 Dark' : '☀️ Light'}
+            </Button>
+
       </div>
+
       {children}
     </ThemeProvider>
   );

@@ -1,5 +1,5 @@
 // HeroSection.jsx
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Typewriter } from 'react-simple-typewriter';
 
 const roles = [
@@ -9,12 +9,20 @@ const roles = [
   'AWS Managed Services',
 ];
 
+// ✅ Container matches Navbar's Nav styling
+const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem; /* matches navbar horizontal spacing */
+`;
+
 const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 8rem 2rem;
   font-family: 'Inter', sans-serif;
+
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
@@ -26,16 +34,18 @@ const TextContainer = styled.div`
   text-align: left;
   display: flex;
   flex-direction: column;
+  color: ${({ theme }) => theme.palette.text.primary}; /* ⭐ CHANGE: use MUI text color */
 `;
 
 const Heading = styled.h1`
   font-size: 3rem;
   font-weight: bold;
-  color: black;
+  color: ${({ theme }) => theme.palette.text.primary}; /* ⭐ CHANGE: use MUI text color */
 `;
 
 const SubHeading = styled.p`
   font-size: 2rem;
+  color: ${({ theme }) => theme.palette.text.secondary}; /* already theme-aware */
 `;
 
 const ImageWrapper = styled.div`
@@ -67,31 +77,32 @@ const ImageContainer = styled.div`
 
 export default function HeroSection() {
   return (
-    <Section>
-      <TextContainer>
-        <Heading>THIS IS AUGUST!</Heading>
+      <Container> 
+        <Section>
+          <TextContainer>
+            <Heading>THIS IS AUGUST!</Heading>
 
-        <SubHeading>
-          <Typewriter
-            words={roles}
-            loop={true}
-            cursor
-            cursorStyle="|"
-            typeSpeed={70}
-            deleteSpeed={50}
-            delaySpeed={1000}
-          />
-        </SubHeading>
+            <SubHeading>
+              <Typewriter
+                words={roles}
+                loop
+                cursor
+                cursorStyle="|"
+                typeSpeed={70}
+                deleteSpeed={50}
+                delaySpeed={1000}
+              />
+            </SubHeading>
 
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-
-      </TextContainer>
-
-      <ImageWrapper>
-        <ImageContainer>
-          <img src="/august_image.png" alt="August" />
-        </ImageContainer>
-      </ImageWrapper>
-    </Section>
+            <p>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              when an unknown printer took a galley of type and scrambled it to make a type
+              specimen book. It has survived not only five centuries, but also the leap
+              into electronic typesetting, remaining essentially unchanged.
+            </p>
+          </TextContainer>
+        </Section>
+      </Container> 
   );
 }

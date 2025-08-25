@@ -2,7 +2,6 @@ import HeroSection from '../components/HeroSection'
 import ProjectSection from '../components/ProjectSection'
 import StackSection from '../components/StackSection'
 import BlogPreviewSection from '../components/BlogPreviewSection'
-import AboutMeSection from '../components/AboutMeSection'
 
 export default function Home({ posts }) {
   return (
@@ -11,7 +10,6 @@ export default function Home({ posts }) {
       <StackSection />
       <ProjectSection />
       <BlogPreviewSection posts={posts} />
-      <AboutMeSection />
     </>
   )
 }

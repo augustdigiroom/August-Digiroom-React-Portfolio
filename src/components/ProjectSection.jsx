@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled'; // ✅ instead of styled-components
 import { Card, CardMedia, CardContent, Typography, Chip, Modal, Box, Button, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -7,14 +7,16 @@ import projects from '../data/project.js';
 
 const Section = styled.section`
   padding: 64px 16px;
-  background: #fff;
+  background: ${({ theme }) =>
+  theme.palette.mode === 'dark' ? '#000000' : '#ffffff'};
+  background: ${({ theme }) => theme.palette.background.paper};
 `;
 
 const Title = styled(Typography)`
   && {
     font-size: 2.5rem;
     font-weight: 800;
-    color: #3f51b5;
+    color: ${({ theme }) => theme.palette.text.primary}; /* 🔹 theme-aware text color */
     text-align: center;
     margin-bottom: 2rem;
     letter-spacing: 0.05em;
@@ -43,7 +45,8 @@ const StyledCard = styled(Card)`
 `;
 
 const ModalBox = styled(Box)`
-  background: #fff;
+  background: ${({ theme }) => theme.palette.background.paper}; /* 🔹 theme-aware background */
+  color: ${({ theme }) => theme.palette.text.primary};         /* 🔹 text color follows theme */
   border-radius: 16px;
   padding: 32px;
   max-width: 900px;
@@ -51,7 +54,14 @@ const ModalBox = styled(Box)`
   width: 100%;
   position: relative;
   outline: none;
+  box-shadow: ${({ theme }) =>
+    theme.palette.mode === 'dark'
+      ? '0 8px 32px rgba(255, 255, 255, 0.1)'
+      : '0 8px 32px rgba(0, 0, 0, 0.1)'}; /* 🔹 subtle shadow based on theme */
+  transition: background 0.3s ease, color 0.3s ease; /* 🔹 smooth transition on mode toggle */
 `;
+
+
 
 export default function ProjectSection() {
   const [selected, setSelected] = useState(null);
