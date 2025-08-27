@@ -15,6 +15,8 @@ export default function AboutMeSection() {
             <p className="text-lg leading-relaxed mb-4">
               I enjoy building blogs, portfolios, and tools that help people share ideas and collaborate. I’m also diving into
               DevOps and exploring how serverless, EC2, and managed services can improve app deployment and scalability.
+
+              Mabuhay Philippines
             </p>
             <p className="text-lg leading-relaxed">
               When I’m not coding, I enjoy playing music, editing videos, and exploring tech communities online.
