@@ -28,7 +28,6 @@ export default function BlogPost() {
   return (
     <section className="max-w-3xl mx-auto p-6">
       <h1 className="text-4xl font-bold text-indigo-700 mb-2">{post.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{post.date}</p>
       <article className="prose">
         <ReactMarkdown>{post.content}</ReactMarkdown>
       </article>

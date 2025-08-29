@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled'; // ✅ instead of styled-components
+import styled from '@emotion/styled';
 import { Card, CardMedia, CardContent, Typography, Chip, Modal, Box, Button, IconButton } from '@mui/material';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import projects from '../data/project.js';
 
+// ✅ Import your Container component
+import Container from './Container';
+
 const Section = styled.section`
   padding: 64px 16px;
   background: ${({ theme }) =>
-  theme.palette.mode === 'dark' ? '#000000' : '#ffffff'};
+    theme.palette.mode === 'dark' ? '#000000' : '#ffffff'};
   background: ${({ theme }) => theme.palette.background.paper};
 `;
 
@@ -16,7 +19,7 @@ const Title = styled(Typography)`
   && {
     font-size: 2.5rem;
     font-weight: 800;
-    color: ${({ theme }) => theme.palette.text.primary}; /* 🔹 theme-aware text color */
+    color: ${({ theme }) => theme.palette.text.primary};
     text-align: center;
     margin-bottom: 2rem;
     letter-spacing: 0.05em;
@@ -45,8 +48,8 @@ const StyledCard = styled(Card)`
 `;
 
 const ModalBox = styled(Box)`
-  background: ${({ theme }) => theme.palette.background.paper}; /* 🔹 theme-aware background */
-  color: ${({ theme }) => theme.palette.text.primary};         /* 🔹 text color follows theme */
+  background: ${({ theme }) => theme.palette.background.paper};
+  color: ${({ theme }) => theme.palette.text.primary};
   border-radius: 16px;
   padding: 32px;
   max-width: 900px;
@@ -57,11 +60,9 @@ const ModalBox = styled(Box)`
   box-shadow: ${({ theme }) =>
     theme.palette.mode === 'dark'
       ? '0 8px 32px rgba(255, 255, 255, 0.1)'
-      : '0 8px 32px rgba(0, 0, 0, 0.1)'}; /* 🔹 subtle shadow based on theme */
-  transition: background 0.3s ease, color 0.3s ease; /* 🔹 smooth transition on mode toggle */
+      : '0 8px 32px rgba(0, 0, 0, 0.1)'};
+  transition: background 0.3s ease, color 0.3s ease;
 `;
-
-
 
 export default function ProjectSection() {
   const [selected, setSelected] = useState(null);
@@ -78,78 +79,80 @@ export default function ProjectSection() {
 
   return (
     <Section id="projects">
-      <Title variant="h2">PROJECTS</Title>
-      <CardGrid>
-        {projects.slice(0, 3).map((proj, idx) => (
-          <StyledCard key={idx} onClick={() => handleOpen(proj)}>
-            <CardMedia
-              component="img"
-              height="180"
-              image={proj.photo}
-              alt={proj.title}
-            />
-            <CardContent>
-              <Typography variant="h6" color="primary" gutterBottom>{proj.title}</Typography>
-              <Typography variant="body2" color="textSecondary">{proj.description}</Typography>
-              <Box mt={2} display="flex" flexWrap="wrap" gap={1}>
-                {proj.tags.map((tag, i) => (
-                  <Chip key={i} label={tag} color="primary" size="small" />
-                ))}
-              </Box>
-            </CardContent>
-          </StyledCard>
-        ))}
-      </CardGrid>
+      {/* ✅ Wrap all content in your Container */}
+      <Container>
+        <Title variant="h2">PROJECTS</Title>
+        <CardGrid>
+          {projects.slice(0, 3).map((proj, idx) => (
+            <StyledCard key={idx} onClick={() => handleOpen(proj)}>
+              <CardMedia
+                component="img"
+                height="180"
+                image={proj.photo}
+                alt={proj.title}
+              />
+              <CardContent>
+                <Typography variant="h6" color="primary" gutterBottom>{proj.title}</Typography>
+                <Typography variant="body2" color="textSecondary">{proj.description}</Typography>
+                <Box mt={2} display="flex" flexWrap="wrap" gap={1}>
+                  {proj.tags.map((tag, i) => (
+                    <Chip key={i} label={tag} color="primary" size="small" />
+                  ))}
+                </Box>
+              </CardContent>
+            </StyledCard>
+          ))}
+        </CardGrid>
 
-      <Modal open={!!selected} onClose={handleClose} aria-labelledby="project-modal">
-        <Box display="flex" alignItems="center" justifyContent="center" minHeight="100vh">
-          {selected && (
-            <ModalBox>
-              <IconButton
-                sx={{ position: 'absolute', top: 16, right: 16 }}
-                onClick={handleClose}
-                aria-label="Close"
-              >
-                &times;
-              </IconButton>
-              <Typography variant="h5" color="primary" gutterBottom>{selected.title}</Typography>
-              <Box display="flex" gap={2} mb={2}>
-                <Button href={selected.github} target="_blank" variant="outlined" color="primary">GitHub</Button>
-                <Button href={selected.website} target="_blank" variant="outlined" color="primary">Website</Button>
-              </Box>
-              <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} gap={4} mb={2}>
-                {/* Screenshot carousel (left side) */}
-                <Box display="flex" flexDirection="column" alignItems="center">
-                  <Box display="flex" alignItems="center" mb={1}>
-                    <IconButton onClick={handlePrev} disabled={selected.screenshots.length <= 1}>
-                      <ArrowBackIosNewIcon />
-                    </IconButton>
-                    <img
-                      src={selected.screenshots[imgIdx]}
-                      alt={`Screenshot ${imgIdx + 1}`}
-                      style={{ width: '500px', height: '320px', objectFit: 'cover', borderRadius: '8px' }}
-                    />
-                    <IconButton onClick={handleNext} disabled={selected.screenshots.length <= 1}>
-                      <ArrowForwardIosIcon />
-                    </IconButton>
+        <Modal open={!!selected} onClose={handleClose} aria-labelledby="project-modal">
+          <Box display="flex" alignItems="center" justifyContent="center" minHeight="100vh">
+            {selected && (
+              <ModalBox>
+                <IconButton
+                  sx={{ position: 'absolute', top: 16, right: 16 }}
+                  onClick={handleClose}
+                  aria-label="Close"
+                >
+                  &times;
+                </IconButton>
+                <Typography variant="h5" color="primary" gutterBottom>{selected.title}</Typography>
+                <Box display="flex" gap={2} mb={2}>
+                  <Button href={selected.github} target="_blank" variant="outlined" color="primary">GitHub</Button>
+                  <Button href={selected.website} target="_blank" variant="outlined" color="primary">Website</Button>
+                </Box>
+                <Box display="flex" flexDirection={{ xs: 'column', md: 'row' }} gap={4} mb={2}>
+                  {/* Screenshot carousel */}
+                  <Box display="flex" flexDirection="column" alignItems="center">
+                    <Box display="flex" alignItems="center" mb={1}>
+                      <IconButton onClick={handlePrev} disabled={selected.screenshots.length <= 1}>
+                        <ArrowBackIosNewIcon />
+                      </IconButton>
+                      <img
+                        src={selected.screenshots[imgIdx]}
+                        alt={`Screenshot ${imgIdx + 1}`}
+                        style={{ width: '500px', height: '320px', objectFit: 'cover', borderRadius: '8px' }}
+                      />
+                      <IconButton onClick={handleNext} disabled={selected.screenshots.length <= 1}>
+                        <ArrowForwardIosIcon />
+                      </IconButton>
+                    </Box>
+                  </Box>
+                  <Box flex={1}>
+                    <Typography variant="body1" mb={2}>{selected.description}</Typography>
+                    <Typography variant="subtitle2" color="primary" mb={1}>Tech Stacks Used:</Typography>
+                    <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
+                      {selected.tags.map((tag, i) => (
+                        <Chip key={i} label={tag} color="primary" size="small" />
+                      ))}
+                    </Box>
+                    <Typography variant="body2">{selected.longDescription}</Typography>
                   </Box>
                 </Box>
-                {/* Description and tech stacks (right side) */}
-                <Box flex={1}>
-                  <Typography variant="body1" mb={2}>{selected.description}</Typography>
-                  <Typography variant="subtitle2" color="primary" mb={1}>Tech Stacks Used:</Typography>
-                  <Box display="flex" flexWrap="wrap" gap={1} mb={2}>
-                    {selected.tags.map((tag, i) => (
-                      <Chip key={i} label={tag} color="primary" size="small" />
-                    ))}
-                  </Box>
-                  <Typography variant="body2">{selected.longDescription}</Typography>
-                </Box>
-              </Box>
-            </ModalBox>
-          )}
-        </Box>
-      </Modal>
+              </ModalBox>
+            )}
+          </Box>
+        </Modal>
+      </Container>
     </Section>
   );
 }

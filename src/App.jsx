@@ -7,6 +7,7 @@ import Post from './pages/Post'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import BlogPost from './pages/BlogPost'
+import Project from './pages/Project'
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <Route path="/blog/:slug" element={<BlogPost />} /> 
         <Route path="/about" element={<About />} />
         <Route path="/posts/:slug" element={<Post />} />
+        <Route path="/projects" element={<Project />} />
       </Routes>
       <Footer />
     </Router>

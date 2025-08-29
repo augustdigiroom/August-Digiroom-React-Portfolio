@@ -17,6 +17,8 @@ export default function AboutMeSection() {
               DevOps and exploring how serverless, EC2, and managed services can improve app deployment and scalability.
 
               Mabuhay Philippines
+
+              I enjoy everthing about web development, from designing intuitive user interfaces to optimizing backend performance.
             </p>
             <p className="text-lg leading-relaxed">
               When I’m not coding, I enjoy playing music, editing videos, and exploring tech communities online.
