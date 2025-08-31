@@ -43,14 +43,21 @@ const projects = [
     longDescription: ""
   },
   {
-    photo: "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
+    photo: "/images/projects/phplaravelblog/laravelbloghome.png",
     title: "A Blog Platform using PHP / Laravel",
     description: "A full-featured e-commerce platform for online shopping.",
-    tags: ["PHP", "Laravel", "MySQL", "E-commerce", "REST API"],
+    tags: ["PHP", "Laravel", "MySQL", "CRUD Operations"],
     github: "https://github.com/augustdigiroom/Laravel-Blog-App",
     website: "https://github.com/augustdigiroom/Laravel-Blog-App",
     screenshots: [
-      "https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80",
+      "/images/projects/phplaravelblog/laravelbloghome.png",
+      "/images/projects/phplaravelblog/register.png",
+      "/images/projects/phplaravelblog/viewposts.png",
+      "/images/projects/phplaravelblog/createapost.png",
+      "/images/projects/phplaravelblog/publishapost.png",
+      "/images/projects/phplaravelblog/likeandaddcomment.png",
+      "/images/projects/phplaravelblog/likeandaddcomment2.png",
+      "/images/projects/phplaravelblog/addacomment.png",
     ],
     longDescription: "This e-commerce platform allows users to browse products, add items to cart, and checkout securely using Stripe. Built with React for the frontend and Express/MongoDB for the backend."
   }
