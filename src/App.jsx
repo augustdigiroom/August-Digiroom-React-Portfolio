@@ -9,8 +9,7 @@ import Footer from './components/Footer'
 import BlogPost from './pages/BlogPost'
 import Project from './pages/Project'
 
-
-function App() {
+function App({ toggleTheme, darkMode }) {
   const [posts, setPosts] = useState([])
 
   useEffect(() => {
@@ -29,7 +28,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <Navbar toggleTheme={toggleTheme} darkMode={darkMode} />
       <Routes>
         <Route path="/" element={<Home posts={posts} />} />
         <Route path="/blog" element={<Blog posts={posts} />} />
@@ -44,4 +43,3 @@ function App() {
 }
 
 export default App
-
