@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Container from '../components/Container';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -36,19 +37,21 @@ export default function Blog() {
   if (error) return <p className="p-8 text-center text-red-600">Error: {error}</p>;
 
   return (
-    <section className="p-8 max-w-4xl mx-auto">
-      <h1 className="text-4xl font-bold mb-6 text-indigo-700">Blog</h1>
-      <ul className="space-y-6">
-        {posts.map(post => (
-          <li key={post.slug} className="border-b pb-4">
-            <Link to={`/blog/${post.slug}`} className="text-2xl text-blue-600 hover:underline">
-              {post.title}
-            </Link>
-            <p className="text-sm text-gray-500">{post.date}</p>
-            <p className="mt-2">{post.description}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <Container>
+      <section className="p-8 max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold mb-6 text-indigo-700">Blog</h1>
+        <ul className="space-y-6">
+          {posts.map(post => (
+            <li key={post.slug} className="border-b pb-4">
+              <Link to={`/blog/${post.slug}`} className="text-2xl text-blue-600 hover:underline">
+                {post.title}
+              </Link>
+              <p className="text-sm text-gray-500">{post.date}</p>
+              <p className="mt-2">{post.description}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </Container>
   );
 }

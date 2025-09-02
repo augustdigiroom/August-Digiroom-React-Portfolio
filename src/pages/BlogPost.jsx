@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import Container from '../components/Container';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -26,11 +27,14 @@ export default function BlogPost() {
   if (!post) return <p className="p-8 text-center">Loading post...</p>;
 
   return (
-    <section className="max-w-3xl mx-auto p-6">
-      <h1 className="text-4xl font-bold text-indigo-700 mb-2">{post.title}</h1>
-      <article className="prose">
-        <ReactMarkdown>{post.content}</ReactMarkdown>
-      </article>
-    </section>
+    <Container>
+        <section className="max-w-3xl mx-auto p-6">
+          <h1 className="text-4xl font-bold text-indigo-700 mb-2">{post.title}</h1>
+          <article className="prose">
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </article>
+        </section>
+    </Container>
+    
   );
 }

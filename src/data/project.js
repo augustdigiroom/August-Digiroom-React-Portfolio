@@ -45,7 +45,7 @@ const projects = [
   {
     photo: "/images/projects/phplaravelblog/laravelbloghome.png",
     title: "A Blog Platform using PHP / Laravel",
-    description: "A full-featured e-commerce platform for online shopping.",
+    description: "A Blog App that showcase CRUD Operations using Laravel Framework.",
     tags: ["PHP", "Laravel", "MySQL", "CRUD Operations"],
     github: "https://github.com/augustdigiroom/Laravel-Blog-App",
     website: "https://github.com/augustdigiroom/Laravel-Blog-App",
