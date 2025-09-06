@@ -59,7 +59,7 @@ const projects = [
       "/images/projects/phplaravelblog/likeandaddcomment2.png",
       "/images/projects/phplaravelblog/addacomment.png",
     ],
-    longDescription: "This e-commerce platform allows users to browse products, add items to cart, and checkout securely using Stripe. Built with React for the frontend and Express/MongoDB for the backend."
+    longDescription: "The laravel blog focuses on CRUD operations. Users can register and login to create, read, update, and delete their blog posts. They can also view, like, and comment on other users' posts. The application uses Laravel's built-in authentication system for secure user management and Eloquent ORM for database interactions."
   }
 ];
 
