@@ -40,7 +40,7 @@ const projects = [
       "/images/projects/coursebooking/addnews.png",
       "/images/projects/coursebooking/editcourse.png"
     ],
-    longDescription: ""
+    longDescription: "The course booking system allows users to register and log in to book courses. Admin users can manage courses and news articles, while regular users can view and book available courses. The application uses JWT for authentication and MongoDB for data storage."
   },
   {
     photo: "/images/projects/phplaravelblog/laravelbloghome.png",
