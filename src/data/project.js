@@ -18,7 +18,7 @@ const projects = [
       "/images/projects/ecommerce/addtocart.png",
       "/images/projects/ecommerce/confirmpayment.png"
     ],
-    longDescription: ""
+    longDescription: "The E-Commerce Website allows users to register and log in to browse and purchase products. Admin users can manage products, while regular users can add products to their cart and proceed to checkout. The application uses JWT for authentication and MongoDB for data storage."
   },
   {
     photo: "/images/projects/coursebooking/home.png",
