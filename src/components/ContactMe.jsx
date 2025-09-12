@@ -113,7 +113,7 @@ export default function ContactMe() {
               "&:hover": { backgroundColor: "#c026d3" },
             }}
           >
-            Send Message
+            What Your Message or Inquiry?
           </Button>
         </form>
       </Paper>
