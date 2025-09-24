@@ -59,7 +59,7 @@ const projects = [
       "/images/projects/phplaravelblog/likeandaddcomment2.png",
       "/images/projects/phplaravelblog/addacomment.png",
     ],
-    longDescription: "The laravel blog focuses on CRUD operations. Users can register and login to create, read, update, and delete their blog posts. They can also view, like, and comment on other users' posts. The application uses Laravel's built-in authentication system for secure user management and Eloquent ORM for database interactions."
+    longDescription: "The laravel blog focuses on CRUD operations. Users can register and login to create, read, update, and delete their blog posts. They can also view, like, and comment on other users' posts. The application uses Laravel's built-in authentication system for secure user management and Eloquent ORM for database interactions. Laravel blog also includes features like post publishing, categorization, and user profiles."
   }
 ];
 
